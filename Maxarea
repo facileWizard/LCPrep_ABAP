@@ -1,0 +1,21 @@
+#Max area 
+Problem -> Find max area inside a map.
+
+method max_area.
+" check constraints,
+data : lv_area type i.
+lv_len = lines( it_heights ).
+lv_j = lv_len. lv_i = 1.
+if lv_len ge 2 and lv_len le 10000.
+"using two pointer increment the pointer when u find that i,j lesser for max space
+"area = min(heights[i], heights[j]) * (j - i)
+while lv_i < lv_j.
+data(lv_min) = COND i( WHEN it_heights[ lv_i ] < it_heights[ lv_j ] THEN it_heights[ lv_i ] ELSE it_heights[ lv_area = lv_min * ( lv_j - lv_i ).
+rv_area = cond i( when rv_area > lv_area then rv_area else lv_area ).
+if lv_i > lv_j.
+lv_j = lv_j - 1.
+else.
+lv_i = lv_i + 1.
+endif.
+endwhile.
+endif.

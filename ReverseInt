@@ -1,0 +1,17 @@
+#Reverse Integer 
+Approach: Covert number to string and then traverse from back using length offset and concatenate
+in a new string and return the string as a result.
+comp: o(n)
+
+
+method reverse_integer.
+"using offset
+data lv_result type string.
+DATA(lv_input_str) = |{ iv_string }|.
+data(lv_strlen) = strlen( lv_input_str ) .
+do lv_strlen times.
+data(lv_i) = lv_strlen - sy-index.
+lv_result = lv_result && lv_input_str+lv_i(1).
+enddo.
+rv_string = lv_result.
+endmethod.

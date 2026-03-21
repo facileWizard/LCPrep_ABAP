@@ -1,0 +1,18 @@
+#Implement Palindrome 
+Complexity - O(n)
+Using two pointer method to track from back and front
+ends in n/2 times iteration
+
+method palindrome.
+is_palindrome = abap_true.
+data(lv_len) = strlen( iv_string ).
+do lv_len div 2 times.
+data(lv_i) = lv_len - sy-index.
+data(lv_leftpointer) = sy-index - 1.
+if iv_string+lv_leftpointer(1) eq iv_string+lv_i(1).
+else.
+is_palindrome = abap_false.
+exit.
+endif.
+enddo.
+endmethod.

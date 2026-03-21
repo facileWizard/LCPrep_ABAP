@@ -3,6 +3,7 @@
 Problem -> search the target element in the given array.
 Approach -> Loop at array and return when element is = to target element.
 comp-> o(n)
+space -> o(1)
 
 
 method linear_search.

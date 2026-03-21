@@ -1,0 +1,21 @@
+#Binary Search
+Problem -> Implement binary search, better searching algo from linear seach bcz reduces the number of iterations
+to get to target element by dividing the array until target is found.
+Comp -> o(log n)
+space -> o(1)
+
+method binary_search.
+data: lv_mid type i.
+lv_i = 1. lv_j = lines( it_sorted ).
+while lv_i le lv_j.
+lv_mid = ( lv_i + lv_j ) div 2.
+if it_sorted[ lv_mid ] eq iv_target.
+ev_index = lv_mid.
+return.
+elseif it_sorted[ lv_mid ] gt iv_target.
+lv_j = lv_mid - 1.
+elseif it_sorted[ lv_mid ] lt iv_target.
+lv_i = lv_mid + 1.
+endif.
+endwhile.
+endmethod.

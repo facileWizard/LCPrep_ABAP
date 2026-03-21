@@ -1,0 +1,17 @@
+#Linear Search
+
+Problem -> search the target element in the given array.
+Approach -> Loop at array and return when element is = to target element.
+comp-> o(n)
+space -> o(1)
+
+
+method linear_search.
+rv_index = -1.
+loop at it_array into data(lw_array).
+if ( iv_target eq lw_array ).
+rv_index = sy-index.
+exit.
+endif.
+endloop.
+endmethod.

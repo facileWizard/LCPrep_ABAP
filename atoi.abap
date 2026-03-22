@@ -49,3 +49,4 @@ ev_result = 2147483648.
 else.
 ev_result = lv_bigint.
 endif.
+endmethod.

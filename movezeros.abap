@@ -1,4 +1,4 @@
-#Move Zeros
+Move Zeros
 
 Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
@@ -13,7 +13,7 @@ Example 2:
 Input: nums = [0]
 Output: [0]
 
-### Move Zeroes (Two Pointer Approach)
+Move Zeroes (Two Pointer Approach)
 
 - Use a write pointer to track position for next non-zero element
 - Traverse array:

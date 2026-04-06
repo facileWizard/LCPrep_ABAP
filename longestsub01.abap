@@ -1,4 +1,4 @@
-🧩 Problem 1: Longest Subarray with Equal 0s and 1s
+🧩 Problem : Longest Subarray with Equal 0s and 1s
 📜 Problem Statement
 
 Given a binary array nums (only 0s and 1s), return the length of the longest contiguous subarray with equal number of 0s and 1s.

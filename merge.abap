@@ -17,7 +17,7 @@ first = sy-index.
 delete it_input index lv_index. 
 continue. 
 else. 
-first = 
+first =  
 
 clear lv_index.
 endloop.

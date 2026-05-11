@@ -6,7 +6,7 @@ Notice that the solution set must not contain duplicate triplets.
 comp -> o(N^2)
 approach -> two sum inside the loop, makes it efficient and do not need to sort like in sort and two pointer approach, cons -> space for hash map.
 
-Example 1:
+Example 1 :
 
 Input: nums = [-1,0,1,2,-1,-4]
 Output: [[-1,-1,2],[-1,0,1]]

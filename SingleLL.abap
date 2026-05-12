@@ -46,3 +46,48 @@ insert(C)
 List:
 
 C -> B -> A
+
+method insert_at_head(key).
+"assumption a hashed map with key value pair (key, next_val)
+gv_next = gv_head
+gv_head = key.
+if gt_ll is intial.
+insert value #( key, 0) to table gt_ll.
+else.
+insert value #( key gv_next) to table gt_ll.
+endif.
+endmethod.
+
+method print_list.
+lv_cur = gv_head.
+while( lv_cur != 0 ).
+endwhile.
+endmethod.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -48,19 +48,26 @@ List:
 C -> B -> A
 
 method insert_at_head(key).
-"assumption a hashed map with key value pair (key, next_val)
-gv_next = gv_head
-gv_head = key.
+"assumption a hashed map with key value pair (key, next_key)
+gv_next = gv_head.
 if gt_ll is intial.
-insert value #( key, 0) to table gt_ll.
+insert value #( key = key, next_key = 0) to table gt_ll.
 else.
-insert value #( key gv_next) to table gt_ll.
+insert value #( key = key next_key = gv_next) to table gt_ll.
 endif.
+gv_head = key.
 endmethod.
 
 method print_list.
 lv_cur = gv_head.
-while( lv_cur != 0 ).
+while( lv_cur is not intial ).
+print lv_cur.
+read gt_ll into data(lw_ll) with table key key = lv_cur.
+if sy-subrc eq 0.
+lv_cur = lw_ll-next_key.
+else.
+exit.
+endif.
 endwhile.
 endmethod.
 

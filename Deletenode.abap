@@ -20,7 +20,7 @@ method delete_node(gv_key).
 lv_cur = gv_head.
 if lv_cur eq gv_key.
 read table gt_ll into data(lw_ll) with table key key = gv_head.
-if sy-subcr eq 0.
+if sy-subrc eq 0.
 gv_head = lw_ll-next_key.
 endif.
 delete table gt_ll where key = lw_ll-key.

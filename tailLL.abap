@@ -12,12 +12,12 @@ A -> B -> C
 
 method delete_tail.
 lv_cur = gv_head.
-lv_prev = gv_head.
 if lines(gt_ll) eq 1.
 delete gt_ll where key = gv_head.
+clear gv_head.
 return.
 endif.
-while lv_head is not intial.
+while lv_cur is not intial.
 read gt_ll into data(lw_ll) with table key key = lv_cur.
 if sy-subrc eq 0.
 if lw_ll-next_key is intial.
@@ -26,10 +26,12 @@ read table gt_ll assigning field-symbol (<fs_assign>) with table key key = lv_pr
 if sy-subrc eq 0.
 <fs_assign>-next_key = ' '.
 endif.
+exit.
 endif.
 else.
 exit.
 endif.
 lv_cur = lw_ll-next_key.
+lv_prev = lw_ll-key.
 endwhile.
 endmethod.

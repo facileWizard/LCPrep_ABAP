@@ -1,3 +1,4 @@
+#### Little bit busy with a prep right now will update linked lists soon.
 # LCPrep_ABAP
 
 This git repo has all the code I have prepared from LC and various websites for Big Tech. Description of the problem at the top and solution at the bottom. You can comment on my posts on linkedin if you want me to implement anything else. 

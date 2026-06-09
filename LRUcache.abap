@@ -82,7 +82,7 @@ Maintain:
 
 gv_head     " MRU
 gv_tail     " LRU
-gv_capacity
+gv_size     "cache size
 Expected Complexity
 Operation	Complexity
 GET	O(1)

@@ -1,7 +1,7 @@
 🧩 Problem 3: Daily Temperatures
 📜 Problem Statement
 
-Given an array temps, return an array where:
+Given an array temps, return an array where :
 
 👉 For each day, tell how many days you have to wait for a warmer temperature
 

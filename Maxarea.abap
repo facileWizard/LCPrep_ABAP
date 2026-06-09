@@ -1,0 +1,40 @@
+#Max area 
+Problem -> ou are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+Return the maximum amount of water a container can store.
+
+Approach: Two Pointer (Greedy)
+Initialize two pointers:
+Left (i = 0)
+Right (j = n - 1)
+While i < j:
+Compute area = min(height[i], height[j]) * (j - i)
+Update maximum area
+Move the pointer with the smaller height inward
+Key Insight
+Area is limited by the shorter line, so moving the taller one won’t help
+Only moving the smaller height gives a chance to find a larger area
+Complexity->
+Time: O(n)
+Space: O(1)
+
+method max_area.
+" check constraints,
+data : lv_area type i.
+lv_len = lines( it_heights ).
+lv_j = lv_len. lv_i = 1.
+if lv_len ge 2 and lv_len le 10000.
+"using two pointer increment the pointer when u find that i,j lesser for max space
+"area = min(heights[i], heights[j]) * (j - i)
+while lv_i < lv_j.
+data(lv_min) = COND i( WHEN it_heights[ lv_i ] < it_heights[ lv_j ] THEN it_heights[ lv_i ] ELSE it_heights[ lv_area = lv_min * ( lv_j - lv_i ).
+rv_area = cond i( when rv_area > lv_area then rv_area else lv_area ).
+if lv_i > lv_j.
+lv_j = lv_j - 1.
+else.
+lv_i = lv_i + 1.
+endif.
+endwhile.
+endif.

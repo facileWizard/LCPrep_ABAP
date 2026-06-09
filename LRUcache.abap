@@ -125,10 +125,17 @@ else
 if gv_size > storage.
 remove_tail().
 endif.
-insertathead
-
+insertathead(key,value).
 endif.
+endmethod.
 
+method insertathead(key,value).
+read table gt_hashed assigning <fs_hashed> with table key key = gv_head.
+if sy-subrc eq 0.
+<fs_hashed>-prev = key.
+insert value # ( key = key value = value next = gv_head prev = ' ' ) to table gt_hashed.
+gv_head = key.
+endif.
 endmethod.
 
 

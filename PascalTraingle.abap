@@ -15,3 +15,13 @@ Output:
   [1,3,3,1],
   [1,4,6,4,1]
 ]
+
+lv_val = 1.
+while ( n lt 0 ).
+lv_count = n - sy-index.
+do lv_count / 2 times.
+print :/ lv_val.
+
+enddo.
+endwhile.
+

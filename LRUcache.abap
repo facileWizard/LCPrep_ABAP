@@ -112,7 +112,7 @@ if sy-subrc eq 0.
 rv_value = <fs_hashed>-value.
 movenode2front(key).
 else.
-return -1.
+rv_value = -1.
 endif.
 endmethod.
 
@@ -122,19 +122,26 @@ if sy-subrc eq 0.
 <fs_hashed>-value = value.
 movenode2front(key).
 else 
-if gv_size > storage.
+if storage le gv_size.
 remove_tail().
 endif.
 insertathead(key,value).
+gv_size = gv_size + 1.
 endif.
 endmethod.
 
 method insertathead(key,value).
+if gv_size > 0
 read table gt_hashed assigning <fs_hashed> with table key key = gv_head.
 if sy-subrc eq 0.
 <fs_hashed>-prev = key.
 insert value # ( key = key value = value next = gv_head prev = ' ' ) to table gt_hashed.
 gv_head = key.
+endif.
+else.
+insert value # ( key = key value = value next = ' ' prev = ' ' ) to table gt_hashed.
+gv_head = key.
+gv_tail = key .
 endif.
 endmethod.
 

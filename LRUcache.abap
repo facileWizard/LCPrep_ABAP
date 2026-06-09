@@ -65,8 +65,8 @@ Assumptions For ABAP Implementation
 Cache Node Structure
 key
 value
-prev_key
-next_key
+prev
+next
 Storage
 
 Use:
@@ -105,3 +105,65 @@ attach_at_head
 remove_tail( )
 
 Evicts least recently used node.
+
+method get(key).
+read table gt_hashed assigning field-symbol(<fs_hashed>) with table key key = key.
+if sy-subrc eq 0.
+rv_value = <fs_hashed>-value.
+movenode2front(key).
+else.
+return -1.
+endif.
+endmethod.
+
+method put(key, value).
+read table gt_hashed assigning <fs_hashed> with table key key = key.
+if sy-subrc eq 0.
+<fs_hashed>-value = value.
+movenode2front(key).
+else 
+if gv_size > storage.
+remove_tail().
+endif.
+insertathead
+
+endif.
+
+endmethod.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

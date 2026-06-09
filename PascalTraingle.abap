@@ -1,5 +1,3 @@
-A common interview-style problem statement is:
-
 Given an integer n, generate the first n rows of Pascal's Triangle.
 
 In Pascal's Triangle, each number is the sum of the two numbers directly above it.

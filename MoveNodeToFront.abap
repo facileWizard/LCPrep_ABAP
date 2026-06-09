@@ -44,6 +44,10 @@ if sy-subrc eq 0.
 read table gt_hashed assigning field-symbol(<fs_hashed2>) with table key key = gv_tail.
 if sy-subcr eq 0.
 insert value #( key = gv_tail next = gv_head ) to table gt_hashed.
+read table gt_hashed assigning <fs_hashed3> with table key key = <fs_hashed2>-prev.
+if sy-subrc eq 0.
+<fs_hashed3>-next = ' '.
+endif.
 gv_head = gv_tail.
 delete gt_hashed where key = gv_tail.
 gv_tail = <fs_hashed2>-prev.
@@ -54,10 +58,13 @@ read table gt_hashed assinging <fs_hashed> with table key key = inputkey.
 if sy-subrc eq 0.
 read table gt_hashed assinging <fs_hashed2> with table key key = <fs_hashed>-prev.
 if sy-subrc eq 0.
-<fs_hashed2>-prev = <fs_hashed>-prev.
 <fs_hashed2>-next = <fs_hashed>-next.
-delete gt_hashed where key = inputkey.
 endif.
+read table gt_hashed assingning <fs_hashed2> with tabele key key = <fs_hashed>-next.
+if sy-subrc eq 0.
+<fs_hashed2>-prev = <fs_hashed>-prev.
+endif.
+delete gt_hashed where key = inputkey.
 endif.
 
 read table gt_hashed assinging <fs_hashed> with table key key = gv_head.

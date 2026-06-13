@@ -35,3 +35,8 @@ Not:
 Not:
 
 " world hello "
+
+first approach -> condense, split at space, loop at split internal table from end and print.
+
+My approach -> no extra space in place, just bcz of follow ups.
+

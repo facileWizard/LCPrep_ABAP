@@ -65,3 +65,27 @@ Implement:
 
 get( )
 put( )
+
+method put(key, value).
+read table gt_hashed assignig field-symbol(<fs_hashed>) with table key key = key.
+if sy-subrc eq 0.
+<fs_hashed>-freq = <fs_hashed>-freq + 1.
+<fs_hashed>-value = value
+else.
+insert value #( key = key value = value freq = 1 ) to table gt_hashed.
+endif.
+endmethod.
+
+method get(key).
+read table gt_hashed assignig field-symbol(<fs_hashed>) with table key key = key.
+if sy-subrc eq 0.
+<fs_hashed>-freq = <fs_hashed>-freq + 1.
+rv_value = <fs_hashed>-value.
+else.
+rv_value = -1.
+endif.
+endmethod.
+
+
+
+

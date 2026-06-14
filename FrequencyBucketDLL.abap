@@ -48,3 +48,28 @@ or
 tail?
 
 and why?
+
+method insert_into_buckey(key, freq).
+
+endmethod.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

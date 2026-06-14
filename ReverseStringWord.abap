@@ -46,7 +46,6 @@ helper function->
 method reverse_string(string).
 lv_left = 0.
 lv_right = strlen( string ) - 1.
-
 while lv_left lt lv_right.
 lv_temp = string+lv_right(1).
 string+lv_right(1) = string+lv_left(1).
@@ -58,7 +57,19 @@ endmethod.
 
 method reverse.
 call method reverse_string( gv_string ).
-
+condense gv_string.
+lv_len = strlen( gv_string ).
+lv_left = 0.
+lv_right = 0.
+do lv_len times.
+lv_right = lv_right + 1.
+lv_index = sy-index - 1.
+if gv_string+lv_index(1) eq space or lv_right = lv_len.
+lv_offset = lv_right - lv_left.
+gv_string+lv_left(lv_offset) = reverse_string( gv_string+lv_left(lv_offset) ).
+lv_left = lv_index + 1.
+endif.
+enddo.
 endmethod.
 
 

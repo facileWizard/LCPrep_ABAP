@@ -33,3 +33,14 @@ For example:
 Can you see any way to reuse work instead of doing:
 
 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2
+
+method pow(x,n).
+if n eq 0. rv_value = 1. return. endif.
+if n eq 1. rv_value = x return. endif.
+rv_value = pow(x, n/2).
+if n % 2 eq 0.
+rv_value = rv_value * rv_value.
+else.
+rv_value = ( rv_value * rv_value ) * x.
+endif.
+endmethod.

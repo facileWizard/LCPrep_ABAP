@@ -66,26 +66,38 @@ endloop.
 do lv_highest times.
 insert value #( value = sy-index is_prime = abap_true ) to table lt_prime. " hashed table for o(1) access.
 enddo.
+read table lt_prime assinging <fs_prime> with table key value = 1.
+if sy-subrc eq 0. <fs_prime>-is_prime = abap_false. endif.
 
-do sqrt( lv_highest ) times.
+do floor( sqrt( lv_highest ) ) times.
 if sy-index eq 1 . continue. endif.
-lv_n = 1.
-while ( lv_n le lv_highest ).
-lv_n = lv_n * sy-index.
-read table lt_prime asssinging <fs_prime> with table key value = lv_n.
+lv_n = sy-index.
+read table lt_prime assigning <fs_prime> with table key value = lv_n. if sy-subrc eq 0 and <fs_prime>-is_prime = abap_false.
+continue. endif.
+do lv_highest div lv_n times.
+lv_value = lv_n * sy-index.
+if sy-index = 1. continue. endif.
+read table lt_prime asssinging <fs_prime> with table key value = lv_value.
 if sy-subrc eq 0. 
 <fs_prime>-is_prime = abap_false.
 endif.
-endwhile.
+enddo.
 enddo.
 
-loop at lt_prime into data(lw_prime).
-if lw_prime-is_prime = abap_true. lv_count = lv_count + 1. endif.
-insert value #( value = lw_prime-value prefix_count = lv_count ) to table lt_prefix_count.
-endloop.
+do lines(lt_prime) times.
+read table lt_prime assinging <fs_prime> with table key value = sy-index.
+if sy-subrc eq 0.
+if <fs_prime>-is_prime = abap_true. lv_count = lv_count + 1. endif.
+insert value #( value = <fs_prime>-value prefix_count = lv_count ) to table lt_prefix_count.
+endif.
+enddo.
 
 loop at gt_input into lw_input.
-print :/ lt_prefix_count[ lw_input[ 2 ] ] -   lt_prefix_count[( lw_input[1] - 1 )].
+if lw_input-range[ 1 ] ne 1.
+print :/ lt_prefix_count[ lw_input-range[2] ]-prefix_count -   lt_prefix_count[( lw_input-range[1] - 1 )]-prefix_count.
+else.
+print :/ lt_prefix_count[ lw_input-range[2] ]-prefix_count -  0.
+endif.
 endloop.
 endmethod.
 

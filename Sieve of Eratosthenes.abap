@@ -83,12 +83,11 @@ loop at lt_prime into data(lw_prime).
 if lw_prime-is_prime = abap_true. lv_count = lv_count + 1. endif.
 insert value #( value = lw_prime-value prefix_count = lv_count ) to table lt_prefix_count.
 endloop.
-endmethod.
 
 loop at gt_input into lw_input.
 print :/ lt_prefix_count[ lw_input[ 2 ] ] -   lt_prefix_count[( lw_input[1] - 1 )].
 endloop.
-
+endmethod.
 
 
 
